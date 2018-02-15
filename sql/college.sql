@@ -39,8 +39,9 @@ CREATE TABLE  course (
   credit_count number(1) ,
   category varchar2(4) ,
   semester varchar2(6) ,
-  teacher_id number(9) NOT NULL,
-  PRIMARY KEY (course_id)
+  teacher_id number(9) NOT NULL ,
+  PRIMARY KEY (course_id) ,
+  FOREIGN KEY (teacher_id) REFERENCES teacher(teacher_id)
 ) ;
 
 CREATE TABLE  studentcourse (
