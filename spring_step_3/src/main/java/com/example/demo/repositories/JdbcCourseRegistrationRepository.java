@@ -49,7 +49,7 @@ public class JdbcCourseRegistrationRepository implements CourseRegistrationRepos
 	}
 
 	@Override
-	public Student getStudent(String u_id) {
+	public Student getStudent(Integer u_id) {
 		String sqlTxt = "SELECT * FROM STUDENT WHERE U_ID=?";
         return template.queryForObject(sqlTxt, new StudentMapper(), u_id);
 	}

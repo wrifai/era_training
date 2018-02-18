@@ -19,7 +19,7 @@ public class InMemoryCourseRegistrationRepository implements CourseRegistrationR
 	}
 
 	@Override
-	public Student getStudent(String u_id) {
+	public Student getStudent(Integer u_id) {
 		// TODO Auto-generated method stub
 		return null;
 	}

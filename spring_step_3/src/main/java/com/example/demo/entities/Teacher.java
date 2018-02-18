@@ -15,6 +15,20 @@ public class Teacher {
 	public String state;
 	public String zip;
 	
+	public Teacher() {
+		super();
+		this.teacher_id = null;
+		this.ssn = null;
+		this.lastname = null;
+		this.firstname = null;
+		this.phone = null;
+		this.office = null;
+		this.address = null;
+		this.city = null;
+		this.state = null;
+		this.zip = null;
+	}
+
 	public Teacher(Integer teacher_id, String lastname, String firstname) {
 		super();
 		this.teacher_id = teacher_id;

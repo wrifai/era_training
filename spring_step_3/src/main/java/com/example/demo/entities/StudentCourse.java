@@ -7,6 +7,12 @@ public class StudentCourse {
 	public Integer u_id;
 	public String course_id;
 	
+	public StudentCourse() {
+		super();
+		this.u_id = null;
+		this.course_id = null;
+	}
+
 	public StudentCourse(Integer u_id, String course_id) {
 		super();
 		this.u_id = u_id;

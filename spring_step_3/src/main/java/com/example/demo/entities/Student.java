@@ -14,6 +14,19 @@ public class Student {
 	public String state;
 	public String zip;
 	
+	public Student() {
+		super();
+		this.u_id = null;
+		this.ssn = null;
+		this.lastname = null;
+		this.firstname = null;
+		this.phone = null;
+		this.address = null;
+		this.city = null;
+		this.state = null;
+		this.zip = null;
+	}
+
 	public Student(Integer u_id, String lastname, String firstname) {
 		super();
 		this.u_id = u_id;

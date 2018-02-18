@@ -11,6 +11,16 @@ public class Course {
 	public String semester;
 	public Integer teacher_id;
 	
+	public Course() {
+		super();
+		this.course_id = null;
+		this.title = null;
+		this.credit_count = null;
+		this.category = null;
+		this.semester = null;
+		this.teacher_id = null;
+	}
+
 	public Course(String course_id, String title, Integer teacher_id) {
 		super();
 		this.course_id = course_id;

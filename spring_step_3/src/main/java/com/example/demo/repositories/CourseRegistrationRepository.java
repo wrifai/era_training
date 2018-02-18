@@ -13,7 +13,7 @@ public interface CourseRegistrationRepository {
 	
 	List<Student> getStudents();
 
-    Student getStudent(String u_id);
+    Student getStudent(Integer i);
 
     Integer getNumberOfStudents();
 
