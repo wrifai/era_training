@@ -1,17 +1,45 @@
 package com.example.demo.entities;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 import org.springframework.stereotype.Component;
 
 @Component
+@Entity
+@Table(name="STUDENT")
 public class Student {
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="u_id")
 	public Integer u_id;
+	
+	@Column(name="ssn")
 	public String ssn;
+	
+	@Column(name="lastname")
 	public String lastname;
+	
+	@Column(name="firstname")
 	public String firstname;
+	
+	@Column(name="phone")
 	public String phone;
+	
+	@Column(name="address")
 	public String address;
+	
+	@Column(name="city")
 	public String city;
+	
+	@Column(name="state")
 	public String state;
+	
+	@Column(name="zip")
 	public String zip;
 	
 	public Student() {

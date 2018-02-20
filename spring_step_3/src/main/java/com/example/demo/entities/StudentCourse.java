@@ -1,10 +1,27 @@
 package com.example.demo.entities;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 import org.springframework.stereotype.Component;
 
 @Component
+@Entity
+@Table(name="studentcourse")
 public class StudentCourse {
+//  TODO: map many to many relationship here.
+//	@Id
+//	@GeneratedValue(strategy=GenerationType.IDENTITY)
+//	@Column(name="teacher_id")
 	public Integer u_id;
+	
+//	@Id
+//	@GeneratedValue(strategy=GenerationType.IDENTITY)
+//	@Column(name="teacher_id")
 	public String course_id;
 	
 	public StudentCourse() {

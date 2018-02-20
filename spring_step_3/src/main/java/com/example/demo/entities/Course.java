@@ -1,14 +1,36 @@
 package com.example.demo.entities;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 import org.springframework.stereotype.Component;
 
 @Component
+@Entity
+@Table(name="course")
 public class Course {
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="teacher_id")
 	public String course_id;	
+	
+	@Column(name="title")
 	public String title;
+	
+	@Column(name="credit_count")
 	public Integer credit_count;
+	
+	@Column(name="category")
 	public String category;
+	
+	@Column(name="semester")
 	public String semester;
+	
+	@Column(name="teacher_id")
 	public Integer teacher_id;
 	
 	public Course() {
