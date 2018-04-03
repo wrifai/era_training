@@ -15,7 +15,6 @@ import javax.sql.DataSource;
 @Configuration
 //@EnableJpaRepositories(basePackages = "com.example.demo.repositories")
 @ComponentScan(basePackages = "com.courseregistration.webapp")
-@PropertySource("classpath:application.properties")
 public class AppConfig {
 	
 	@Bean(name = "dataSource", destroyMethod = "shutdown")
