@@ -33,11 +33,13 @@ CREATE TABLE  course (
   semester varchar2(6) ,
   teacher_id number(9) NOT NULL ,
   PRIMARY KEY (course_id) ,
-  FOREIGN KEY (teacher_id) REFERENCES teacher(teacher_id)
+  FOREIGN KEY (teacher_id) REFERENCES teacher(teacher_id) ON DELETE CASCADE
 ) ;
 
 CREATE TABLE  studentcourse (
   u_id number(9) NOT NULL,
   course_id varchar2(8)  NOT NULL,
-  PRIMARY KEY (u_id,course_id)
+  PRIMARY KEY (u_id,course_id),
+  FOREIGN KEY (u_id) REFERENCES student(u_id) ON DELETE CASCADE,
+  FOREIGN KEY (course_id) REFERENCES course(course_id) ON DELETE CASCADE
 ) ;

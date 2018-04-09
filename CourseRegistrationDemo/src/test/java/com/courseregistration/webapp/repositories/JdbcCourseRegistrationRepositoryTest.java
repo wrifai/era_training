@@ -39,4 +39,10 @@ public class JdbcCourseRegistrationRepositoryTest {
 		Student student = repository.getStudent(6);
 		assertEquals(student.getFirstname(), "Ahi");
 	}
+	
+	@Test
+	public void testGetCourse() throws Exception {
+		Course student = repository.getCourse("MECH325");
+		assertEquals(student.getTeacher_id(), new Integer(8));
+	}
 }

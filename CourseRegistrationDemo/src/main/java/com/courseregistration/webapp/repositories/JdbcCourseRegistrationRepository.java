@@ -12,12 +12,17 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
+
+import java.io.Serializable;
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @Repository
-//@Profile({"test"})
 public class JdbcCourseRegistrationRepository implements CourseRegistrationRepository{
 	private JdbcTemplate template;
 	
@@ -227,7 +232,7 @@ public class JdbcCourseRegistrationRepository implements CourseRegistrationRepos
 	
 	
     /*************************************** REGISTRATION FUNCTIONS ***************************************/
-	private class RegistrationMapper implements RowMapper<StudentCourse> {
+	private class RegistrationMapper implements RowMapper<StudentCourse>, Serializable {
 		@Override
         public StudentCourse mapRow(ResultSet resultSet, int i) throws SQLException {
             return new StudentCourse(resultSet.getInt("U_ID"),
@@ -244,13 +249,29 @@ public class JdbcCourseRegistrationRepository implements CourseRegistrationRepos
 	@Override
 	public List<StudentCourse> getRegistrationsForStudent(String u_id) {
 		String sqlTxt = "SELECT * FROM STUDENTCOURSE WHERE U_ID=?";
-        return template.query(sqlTxt, new RegistrationMapper());
+        List<Map<String, Object>> rows = template.queryForList(sqlTxt, u_id, new RegistrationMapper());
+        List<StudentCourse> registrations = new ArrayList<StudentCourse>();
+        for(Map<String, Object> row : rows) {
+        	StudentCourse registration = new StudentCourse();
+        	registration.setCourse_id((String)(row.get("COURSE_ID")));
+        	registration.setU_id(((BigDecimal)(row.get("U_ID"))).intValue());
+        	registrations.add(registration);
+        }
+        return registrations;
 	}
 	
 	@Override
-	public List<StudentCourse> getRegistrationsForCourse(String u_id) {
+	public List<StudentCourse> getRegistrationsForCourse(String course_id) {
 		String sqlTxt = "SELECT * FROM STUDENTCOURSE WHERE COURSE_ID=?";
-        return template.query(sqlTxt, new RegistrationMapper());
+		List<Map<String, Object>> rows = template.queryForList(sqlTxt, course_id);
+        List<StudentCourse> registrations = new ArrayList<StudentCourse>();
+        for(Map<String, Object> row : rows) {
+        	StudentCourse registration = new StudentCourse();
+        	registration.setCourse_id((String)(row.get("COURSE_ID")));
+        	registration.setU_id(((BigDecimal)(row.get("U_ID"))).intValue());
+        	registrations.add(registration);
+        }
+        return registrations;
 	}
 
 	@Override
